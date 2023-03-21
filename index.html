@@ -35,6 +35,9 @@
             <label for="broker-port">MQTT Broker Port:</label>
             <input type="text" id="broker-port" name="broker-port" value="8081">
         </form>
+		
+		<button id="start-con" class="btn btn-primary">Start Connection</button>
+		<button id="end-con" class="btn btn-primary">End Connection</button>
 
         <!-- Map container -->
         <div id="map" style="height: 500px;"></div>
@@ -54,6 +57,8 @@
 			L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19, attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
 
 			map.setView([51.05, -114.070], 10);
+			
+			var start = 'No';
         </script>
 
     </body>
