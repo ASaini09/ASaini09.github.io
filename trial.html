@@ -36,6 +36,7 @@
             <input type="text" id="broker-port" name="broker-port" value="8081">
 
             <button type="button" onclick="connectToBroker()">Connect to Broker</button>
+			<button type="button" onclick="disconnectFromBroker()">Disconnect From Broker</button>
         </form>
 
         <!-- Map container -->
@@ -58,11 +59,18 @@
             // Connect to MQTT broker
             function connectToBroker() {
                 var brokerHost = document.getElementById("broker-host").value.toString();
-                var brokerPort = document.getElementById("broker-port").value.toString();
-
-                client = new Paho.MQTT.Client(brokerHost, brokerPort, "clientId");
+                var brokerPort = document.getElementById("broker-port").value;
+				
+				var clientId = "client_" + Math.random().toString(16).substr(2, 8);
+                client = new Paho.MQTT.Client(brokerHost, parseInt(brokerPort), clientId);
                 client.connect({onSuccess: onConnect});
             }
+			
+			function disconnectFromBroker() {
+				client.disconnect();
+				console.log("Disconnected from MQTT broker");
+			
+			}
 
             // Callback function called when MQTT client connects to broker
             function onConnect() {
