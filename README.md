@@ -14,4 +14,4 @@ The user is able to publish any messages to any topics they choose, required the
 There is a "share my status" button that generates a GeoJSON message that includes the users current temperature and a random value for the temperature. 
 This message is also published to the MQTT topic.
 A map is displayed and when "share my status" button is used, a marker is placed on the map at the users current location. When they click the marker, they can see
-the current temperature value. The colour of the marker changes betwene green, blue and red dependong on the current temperature value.
+the current temperature value. The colour of the marker changes betwene green, blue and red depending on the current temperature value.
